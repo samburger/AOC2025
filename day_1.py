@@ -22,12 +22,13 @@ def main_2(input_file):
         rot = int(rot[1:]) * dir
         zeroes += abs(rot) // 100
         new_pos = (pos + (rot % 100)) % 100
-        if (new_pos < pos) and rot > 0 and pos != 0:
-            zeroes += 1
-        elif (new_pos > pos) and rot < 0 and pos != 0:
-            zeroes += 1
-        elif new_pos == 0 and pos != 0:
-            zeroes += 1
+        if pos:
+            if (new_pos < pos) and rot > 0:
+                zeroes += 1
+            elif (new_pos > pos) and rot < 0:
+                zeroes += 1
+            elif new_pos == 0:
+                zeroes += 1
         pos = new_pos
     return zeroes
 
